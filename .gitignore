@@ -7,3 +7,4 @@
 /captures
 .externalNativeBuild
 /src/main/assets/
+*.jks

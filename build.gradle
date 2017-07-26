@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:2.3.3'
     }
 }
 
@@ -35,6 +35,21 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("wycode_pakage_key.jks")
+            storePassword "11900503"
+            keyAlias "rolltheball"
+            keyPassword "11900503"
+        }
+        release {
+            storeFile file("wycode_pakage_key.jks")
+            storePassword "11900503"
+            keyAlias "rolltheball"
+            keyPassword "11900503"
+        }
     }
 
     buildTypes {
