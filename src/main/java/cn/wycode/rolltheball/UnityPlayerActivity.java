@@ -29,7 +29,7 @@ public class UnityPlayerActivity extends Activity
 	private static final int THUMB_SIZE = 64;
     private IWXAPI wxApi;
 
-    private static final String shareUrl = "http://wycode.cn";
+    private static final String shareUrl = "http://wycode.cn/game/rollTheBall/rollshare.html";
 
 	// Setup activity layout
 	@Override protected void onCreate (Bundle savedInstanceState)
