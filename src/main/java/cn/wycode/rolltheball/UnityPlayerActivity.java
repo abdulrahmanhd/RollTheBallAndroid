@@ -107,7 +107,7 @@ public class UnityPlayerActivity extends Activity
 
 	public void share2wechat(String id,String userName,int score,int rank){
         WXWebpageObject object = new WXWebpageObject();
-        object.webpageUrl = shareUrl+"?name="+userName+"&score="+score+"&rank="+rank;
+        object.webpageUrl = shareUrl+"?id="+id;
 
         WXMediaMessage message = new WXMediaMessage(object);
         message.title = "滚自己的蛋，让你们看看！";
@@ -126,7 +126,7 @@ public class UnityPlayerActivity extends Activity
 
     public void share2moment(String id,String userName,int score,int rank){
         WXWebpageObject object = new WXWebpageObject();
-		object.webpageUrl = shareUrl+"?name="+userName+"&score="+score+"&rank="+rank;
+        object.webpageUrl = shareUrl+"?id="+id;
 
         WXMediaMessage message = new WXMediaMessage(object);
         message.title = "滚自己的蛋，让你们看看！";
