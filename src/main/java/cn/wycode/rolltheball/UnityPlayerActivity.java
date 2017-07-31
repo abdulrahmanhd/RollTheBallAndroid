@@ -112,7 +112,7 @@ public class UnityPlayerActivity extends Activity
         WXMediaMessage message = new WXMediaMessage(object);
         message.title = "滚自己的蛋，让你们看看！";
         message.description = String.format("我在滚蛋吧排名第%d，不服来战！",rank);
-		Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.drawable.app_icon);
+		Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
 		Bitmap thumb = Bitmap.createScaledBitmap(bmp,THUMB_SIZE,THUMB_SIZE,true);
 		bmp.recycle();
 		message.thumbData = bmpToByteArray(thumb,true);
@@ -131,7 +131,7 @@ public class UnityPlayerActivity extends Activity
         WXMediaMessage message = new WXMediaMessage(object);
         message.title = "滚自己的蛋，让你们看看！";
         message.description = String.format("我在滚蛋吧排名第%d，不服来战！",rank);
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.drawable.app_icon);
+        Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
 		Bitmap thumb = Bitmap.createScaledBitmap(bmp,THUMB_SIZE,THUMB_SIZE,true);
 		bmp.recycle();
         message.thumbData = bmpToByteArray(thumb,true);
