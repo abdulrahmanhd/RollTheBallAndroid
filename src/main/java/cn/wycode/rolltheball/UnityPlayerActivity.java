@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 
-public class UnityPlayerActivity extends Activity {
+public class UnityPlayerActivity extends Activity implements OverDialog.OverDialogListener, PauseDialog.PauseDialogListener {
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
 
     private static final String WX_APP_ID = "wx12249c386a141c6f";
@@ -164,18 +164,21 @@ public class UnityPlayerActivity extends Activity {
 
     public void showOver(int score) {
         overDialog = new OverDialog(this);
+        overDialog.tvScore.setText(score + "m");
         overDialog.show();
+        overDialog.setOverDialogListener(this);
     }
 
     public void sendOverRank(int rank) {
-        if(overDialog!=null&&overDialog.isShowing()){
-
+        if (overDialog != null && overDialog.isShowing()) {
+            overDialog.tvRank.setText("全球排名第 "+ rank);
         }
     }
 
     public void showPause() {
         pauseDialog = new PauseDialog(this);
         pauseDialog.show();
+        pauseDialog.setPauseDialogListener(this);
     }
 
     public static byte[] bmpToByteArray(final Bitmap bmp, final boolean needRecycle) {
@@ -193,5 +196,47 @@ public class UnityPlayerActivity extends Activity {
         }
 
         return result;
+    }
+
+    @Override
+    public void onClickWechat() {
+        if (overDialog != null && overDialog.isShowing()) {
+            UnityPlayer.UnitySendMessage("GameManager", "share2wechat", "");
+        }
+    }
+
+    @Override
+    public void onClickMoment() {
+        if (overDialog != null && overDialog.isShowing()) {
+            UnityPlayer.UnitySendMessage("GameManager", "share2moment", "");
+        }
+    }
+
+    @Override
+    public void onClickBack() {
+        if (overDialog != null && overDialog.isShowing()) {
+            overDialog.dismiss();
+            UnityPlayer.UnitySendMessage("GameManager", "backToMain", "");
+        }
+        if(pauseDialog != null && pauseDialog.isShowing()){
+            pauseDialog.dismiss();
+            UnityPlayer.UnitySendMessage("GameManager", "backToMain", "");
+        }
+    }
+
+    @Override
+    public void onClickStart() {
+        if (pauseDialog != null && pauseDialog.isShowing()) {
+            pauseDialog.dismiss();
+            UnityPlayer.UnitySendMessage("GameManager", "continuePlay", "");
+        }
+    }
+
+    @Override
+    public void onClickRestart() {
+        if (overDialog != null && overDialog.isShowing()) {
+            overDialog.dismiss();
+            UnityPlayer.UnitySendMessage("GameManager", "restart", "");
+        }
     }
 }

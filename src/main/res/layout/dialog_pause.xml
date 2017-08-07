@@ -5,7 +5,27 @@
     android:orientation="vertical">
 
     <WebView
+        android:id="@+id/wv_pause"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="220dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <ImageView
+            android:id="@+id/iv_pause_back"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@drawable/back"/>
+        <ImageView
+            android:id="@+id/iv_pause_start"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@drawable/start1"/>
+    </LinearLayout>
 
 </LinearLayout>
