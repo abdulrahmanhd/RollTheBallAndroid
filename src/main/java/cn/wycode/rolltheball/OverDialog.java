@@ -48,6 +48,14 @@ public class OverDialog extends AlertDialog implements View.OnClickListener {
         ivBack.setOnClickListener(this);
         ivRestart.setOnClickListener(this);
 
+        setCancelable(false);
+
+
+    }
+
+    @Override
+    public void show() {
+        super.show();
         webView.loadUrl(url);
     }
 
